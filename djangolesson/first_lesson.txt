@@ -1,0 +1,29 @@
+Добре спершу я завантажив біліотеку джанго без всяких різних способів після цьогу я створив через
+термінал головний проєкт яикй містить всі головні приколи через команду python manager.py startproject 'NAME'
+далі я вже міг тестувати це чудо на локальном сервері через python manager.py runserver
+
+Потім я створив додаток який містить логіку з головним файлом щодо переходу через /url зверху браузера
+я це зробив це так написав в терміналі команду python manager.py startapp 'NAME' в dgangoMain в settings
+я добавив імя мого нового додатку ось тут
+ INSTALLED_APPS = [
+    'mainView',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+
+далі в цьому головному файлі в urls я добавив таку логіку що коли я знагодуся на головному екрані то в мене
+починає працювати в mainView urls
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('mainView.urls'))
+]
+
+а вже самому MainView я почав визивати скрипт views в цьому файлі а там вже була в функціях сама логіка веб коду

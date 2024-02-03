@@ -1,0 +1,459 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Main</title>
+    <style>
+        .header-section1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-top: -450px;
+        }
+
+        .header-section1 {
+            margin-left: 1200px;
+            width: 700px;
+            height: 750px;
+        }
+
+        .idk {
+            text-align: center;
+            margin-top: 0px;
+            font-weight: bold;
+        }
+
+        .idk1 {
+            padding: 150px;
+            padding-left: 400px;
+            padding-top: 50px;
+            font-style: italic;
+            color: #3C3831;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('{% static "mainView/img/images.png" %}') center center/cover fixed no-repeat;
+            overflow-x: hidden;
+        }
+
+        aside {
+            position: fixed;
+            z-index: 1;
+            float: left;
+            background: #2C2C2C;
+            width: 20%;
+            padding: 20px;
+            height: 90vh;
+            overflow-y: auto;
+       }
+
+       aside::-webkit-scrollbar {
+            width: 5px;
+       }
+
+       aside::-webkit-scrollbar-thumb {
+           background-color: #4D4D4D;
+       }
+
+        .nav {
+            color: white;
+            margin-top: 20px;
+        }
+
+        .navigation {
+            margin-top: 50px;
+            font-style: italic;
+            color: red;
+        }
+
+        .vkladky {
+            margin-top: 30px;
+        }
+
+        .sms {
+            padding: 15px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .mainControl {
+            color: #33FF68;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            transition: all .6s ease;
+        }
+
+        li {
+            margin-bottom: 10px;
+            transition: all .6s ease;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        aside ul li:hover, aside ul a:hover {
+            color: #eb5959;
+            transform: scale(1.05);
+        }
+
+        .product-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            margin-left: 200px;
+            text-align: center;
+            background: #F7F4F3;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: box-shadow 0.3s ease;
+            height: 500px;
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 90px;
+        }
+
+        .product-info {
+            flex-grow: 1;
+        }
+
+        .button-container {
+            margin-left: -180px;
+            margin-top: -25px;
+        }
+
+        .product-box:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-img {
+            width: 80%;
+            height: 100%;
+            max-height: 200px;
+            margin-left: 35px;
+        }
+
+        .price {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .name {
+            font-style: italic;
+            font-size: 25px;
+        }
+
+        .button {
+            width: 100px;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            color: #ffffff;
+            background-color: #40E0D0;
+            border-radius: 20px;
+            border: none;
+            transition: background-color 0.3s;
+            margin-left: 150px;
+            margin-top: 30px;
+        }
+
+        .button:hover {
+            background-color: #DE3163;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .header-section {
+            background: white;
+            position: relative;
+            height: 100px;
+        }
+
+        .overlay {
+            position: fixed;
+            z-index: 2;
+            float: left;
+            width: 100%;
+            height: 100px;
+            background: url('{% static "mainView/img/ArtemPizza.png" %}') center center/cover fixed no-repeat;
+        }
+
+        .button-value {
+            width: 25px;
+            height: 25px;
+            border: none;
+            background-color: #F7F4F3;
+            cursor: pointer;
+        }
+
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            margin: 0 10px;
+            border: none;
+            background-color: #F7F4F3;
+        }
+
+        .quantity-input1 {
+            width: 50px;
+            font-size: 25px;
+            text-align: center;
+            margin: 0 50px;
+            border: none;
+            background-color: #CCD1D1;
+            color: #454545;
+        }
+
+        .main_logo {
+            width: 200px;
+            height: 200px;
+        }
+
+        .header-top {
+            position: fixed;
+            z-index: 1;
+            width: 100%;
+            height: 180px;
+            background: #CCD1D1;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+        }
+
+        .top-image {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .top-heading {
+            color: #212F3D;
+            font-size: 24px;
+            margin-top: -40px;
+            margin-left: -500px;
+            font-weight: bold;
+        }
+
+        .basket {
+            width: 150px;
+            height: 50px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin-left: 1100px;
+            background: #FF0000;
+            margin-top: 100px;
+            z-index: 1;
+            border: none;
+            transition: background-color 0.3s;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .basket:hover {
+            background-color: #E74C3C;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .picto-bask {
+            width: 40px;
+            height: 40px;
+            margin-top: -70px;
+            margin-left: 1170px;
+        }
+
+        .menu {
+            color: #3C59E7;
+            padding: 10px;
+            background-color: #CCD1D1;
+            font-size: 22px;
+            font-weight: bold
+        }
+
+        .menu1 {
+            color: #DF1212;
+            padding: 10px;
+            background-color: #CCD1D1;
+            font-size: 22px;
+            font-weight: bold
+        }
+
+        .m {
+            margin-top: -65px;
+            margin-left: -30px;
+        }
+
+        .m1 {
+            margin-top: -43px;
+            margin-left: 200px;
+        }
+
+        .m2 {
+            margin-top: -43px;
+            margin-left: 430px;
+        }
+
+        .m3 {
+            margin-top: -43px;
+            margin-left: 660px;
+        }
+
+        .menu:hover {
+            font-size: 25px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header-top">
+       <button onclick="redirectToBuyingPage()" class="basket">Basket</button>
+        <input type="text" value="0" class="quantity-input1" id="basketInput">
+        <h1 class="top-heading">Welcome to Artem's Pizza</h1>
+        <img src="{% static 'mainView/img/shopping-cart.png'%}" class="picto-bask">
+        <ul>
+            <li class="m"><a href="{% url 'home' %}" class="menu">Pizza</a></li>
+            <li class="m1"><a href="{% url 'drinks' %}" class="menu1">Drinks</a></li>
+            <li class="m2"><a href="{% url 'meals' %}" class="menu">Meals</a></li>
+            <li class="m3"><a href="{% url 'deserts' %}" class="menu">Deserts</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function redirectToBuyingPage() {
+    // Отримуємо дані з sessionStorage
+    var productDetailsJSON = sessionStorage.getItem('productDetails');
+    var productDetails = JSON.parse(productDetailsJSON);
+
+    // Перевірка, чи дані існують
+    if (productDetails) {
+        // Кодуємо дані у параметри URL
+        var encodedTitle = encodeURIComponent(productDetails.title);
+        var encodedPrice = encodeURIComponent(productDetails.price);
+        var encodedDescription = encodeURIComponent(productDetails.description);
+        var encodedImage = encodeURIComponent(productDetails.image);
+
+        // Складаємо URL і відправляємо на сторінку покупок
+        var url = "{% url 'buying' %}?title=" + encodedTitle +
+                  "&price=" + encodedPrice +
+                  "&description=" + encodedDescription +
+                  "&image=" + encodedImage;
+
+        window.location.href = url;
+    } else {
+        console.error('Product details not found in sessionStorage.');
+    }
+}
+
+    </script>
+
+    <div class="header-section">
+        <div class="overlay">
+
+        </div>
+    </div>
+
+    <aside>
+        <img src="{% static 'mainView/img/main_logo.png' %}" class="main_logo">
+        <h3 class="nav">Artem's Pizza</h3>
+        <h3 class="navigation">Navigation:</h3>
+
+        <ul class="vkladky">
+            <li class="sms"><a href="{% url 'home' %}" class="mainControl">Main</a></li>
+            <li class="sms"><a href="{% url 'about' %}" class="mainControl">About us</a></li>
+            <li class="sms"><a href="{% url 'contacts' %}" class="mainControl">Contacts</a></li>
+            <li class="sms"><a href="{% url 'news' %}" class="mainControl">News</a></li>
+        </ul>
+    </aside>
+
+    <div class="container">
+    <div class="row">
+        {% if drinks %}
+            {% for el in drinks %}
+                <div class="col-md-4">
+                    <div class="product-box">
+                        {% with data="/drink/img/coca.png /drink/img/fanta.png /drink/img/sprite.png /drink/img/lv-pivo.png /drink/img/zivchik.png" %}
+                            {% for img in data.split %}
+                                {% if forloop.counter == forloop.parentloop.counter %}
+                                    <img src="{% static img %}" class="product-img">
+                                {% endif %}
+                            {% endfor %}
+                        {% endwith %}
+                        <div class="product-info">
+                            <p class="name">{{ el.title }}</p>
+                            <p class="price">{{ el.price }}</p>
+                            <p>{{ el.description }}</p>
+                        </div>
+                        <div class="buy-button-container1">
+                           <button class="button" onclick="buyButtonClick('{{ el.title }}', '{{ el.price }}', '{{ el.description }}', '{% static img %}')">Buy</button>
+                            <div class="button-container">
+                                <button class="button-value" onclick="decreaseQuantity('{{ el.id }}')">-</button>
+                                <input type="text" id="quantityInput{{ el.id }}" class="quantity-input" value="1">
+                                <button class="button-value" onclick="increaseQuantity('{{ el.id }}')">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>We don't have anything new</p>
+        {% endif %}
+    </div>
+</div>
+
+
+<script>
+    function buyButtonClick(title, price, description, image) {
+        var encodedTitle = encodeURIComponent(title);
+    var encodedPrice = encodeURIComponent(price);
+    var encodedDescription = encodeURIComponent(description);
+    var encodedImage = encodeURIComponent(image);
+
+    // Зберігаємо дані в sessionStorage
+    var productDetails = {
+        title: title,
+        price: price,
+        description: description,
+        image: image
+    };
+    sessionStorage.setItem('productDetails', JSON.stringify(productDetails));
+    increaseQuantity1();
+}
+
+    function increaseQuantity(id) {
+        var quantityInput = document.getElementById('quantityInput' + id);
+        var currentQuantity = parseInt(quantityInput.value);
+        quantityInput.value = currentQuantity + 1;
+    }
+
+    function increaseQuantity1() {
+        var quantityInput = document.getElementById('basketInput');
+        var currentQuantity = parseInt(quantityInput.value);
+        quantityInput.value = currentQuantity + 1;
+    }
+
+
+    function decreaseQuantity(id) {
+        var quantityInput = document.getElementById('quantityInput' + id);
+        var currentQuantity = parseInt(quantityInput.value);
+        if (currentQuantity > 1) {
+            quantityInput.value = currentQuantity - 1;
+        }
+    }
+</script>
+
+</body>
+</html>
+
